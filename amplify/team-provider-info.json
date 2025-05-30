@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-landfill-dev-b6c11-authRole",
+      "UnauthRoleArn": "arn:aws:iam::341276397985:role/amplify-landfill-dev-b6c11-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::341276397985:role/amplify-landfill-dev-b6c11-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-landfill-dev-b6c11-deployment",
+      "UnauthRoleName": "amplify-landfill-dev-b6c11-unauthRole",
+      "StackName": "amplify-landfill-dev-b6c11",
+      "StackId": "arn:aws:cloudformation:us-east-1:341276397985:stack/amplify-landfill-dev-b6c11/c1a5b480-3ca8-11f0-b96f-0affc972dfbd",
+      "AmplifyAppId": "d294f1w7kxa1zk"
+    },
+    "categories": {
+      "auth": {
+        "landfillf1e9cc06": {}
+      },
+      "storage": {
+        "s3f1309b3d": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
+  }
+}

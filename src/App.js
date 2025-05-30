@@ -71,14 +71,19 @@ function formatBytes(a, b = 2, k = 1024) {
 
 const Content = () => {
     const hiddenFileInput = useRef(null);
+    const hiddenFolderInput = useRef(null);
     const [visibleAlert, setVisibleAlert] = useState(false);
     const [uploadList, setUploadList] = useState([]);
     const [fileList, setFileList] = useState([]);
     const [historyList, setHistoryList] = useState([]);
     const [historyCount, setHistoryCount] = useState(0);
-    const handleClick = () => {
+    const handleClickFile = () => {
         hiddenFileInput.current.value = ""; // This avoids errors when selecting the same files multiple times
         hiddenFileInput.current.click();
+    };
+    const handleClickFolder = () => {
+        hiddenFolderInput.current.value = ""; // This avoids errors when selecting the same files multiple times
+        hiddenFolderInput.current.click();
     };
     const handleChange = e => {
         e.preventDefault();
@@ -210,10 +215,7 @@ const Content = () => {
                         />
 
                         <SpaceBetween direction="horizontal" size="xs">
-                            <Button onClick={handleClick}
-                                    iconAlign="left"
-                                    iconName="upload"
-                            >
+                            <Button onClick={handleClickFile} iconAlign="left" iconName="upload">
                                 Choose file[s]
                             </Button>
                             <input
@@ -222,6 +224,18 @@ const Content = () => {
                                 onChange={handleChange}
                                 style={{display: 'none'}}
                                 multiple
+                            />
+                            <Button onClick={handleClickFolder} iconAlign="left" iconName="upload">
+                                Choose folder[s]
+                            </Button>
+                            <input
+                                type="file"
+                                ref={hiddenFolderInput}
+                                onChange={handleChange}
+                                style={{display: 'none'}}
+                                multiple
+                                webkitdirectory=""
+                                directory=""
                             />
                             <Button variant="primary" onClick={handleUpload}>Upload</Button>
                         </SpaceBetween>

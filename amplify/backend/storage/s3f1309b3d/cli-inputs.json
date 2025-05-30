@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3f1309b3d",
+  "policyUUID": "f1309b3d",
+  "bucketName": "botany-bay",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
