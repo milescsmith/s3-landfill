@@ -85,12 +85,27 @@ const Content = () => {
         hiddenFolderInput.current.value = ""; // This avoids errors when selecting the same files multiple times
         hiddenFolderInput.current.click();
     };
-    const handleChange = e => {
+    const handleFileChange = e => {
         e.preventDefault();
         let i, tempUploadList = [];
         for (i = 0; i < e.target.files.length; i++) {
             tempUploadList.push({
                 label: e.target.files[i].name,
+                labelTag: formatBytes(e.target.files[i].size),
+                description: 'File type: ' + e.target.files[i].type,
+                icon: 'file',
+                id: i
+            })
+        }
+        setUploadList(tempUploadList);
+        setFileList(e.target.files);
+    };
+    const handleFolderChange = e => {
+        e.preventDefault();
+        let i, tempUploadList = [];
+        for (i = 0; i < e.target.files.length; i++) {
+            tempUploadList.push({
+                label: e.target.files[i].webkitRelativePath + "/" + e.target.files[i].name,
                 labelTag: formatBytes(e.target.files[i].size),
                 description: 'File type: ' + e.target.files[i].type,
                 icon: 'file',
@@ -135,7 +150,7 @@ const Content = () => {
                 const id = uploadList[i].id;
                 progressBar.push(progressBarFactory(fileList[id]));
                 setHistoryCount(historyCount + 1);
-                uploadCompleted.push(Storage.put(fileList[id].name, fileList[id], {
+                uploadCompleted.push(Storage.put(fileList[id].webkitRelativePath, fileList[id], {
                         progressCallback: progressBar[i],
                         level: "protected"
                     }).then(result => {
@@ -221,7 +236,7 @@ const Content = () => {
                             <input
                                 type="file"
                                 ref={hiddenFileInput}
-                                onChange={handleChange}
+                                onChange={handleFileChange}
                                 style={{display: 'none'}}
                                 multiple
                             />
@@ -231,7 +246,7 @@ const Content = () => {
                             <input
                                 type="file"
                                 ref={hiddenFolderInput}
-                                onChange={handleChange}
+                                onChange={handleFolderChange}
                                 style={{display: 'none'}}
                                 multiple
                                 webkitdirectory=""

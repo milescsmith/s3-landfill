@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "landfillf1e9cc06": {
+    "landfill180f1eb9": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -23,7 +23,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "s3f1309b3d": {
+    "landfill": {
       "BucketName": "string",
       "Region": "string"
     }
