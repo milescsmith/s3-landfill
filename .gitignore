@@ -25,6 +25,7 @@ yarn-error.log*
 s3-uploader.iml
 /.idea/
 
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*

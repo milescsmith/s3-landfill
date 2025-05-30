@@ -105,7 +105,7 @@ const Content = () => {
         let i, tempUploadList = [];
         for (i = 0; i < e.target.files.length; i++) {
             tempUploadList.push({
-                label: e.target.files[i].webkitRelativePath + "/" + e.target.files[i].name,
+                label: e.target.files[i].webkitRelativePath,
                 labelTag: formatBytes(e.target.files[i].size),
                 description: 'File type: ' + e.target.files[i].type,
                 icon: 'file',
@@ -150,7 +150,14 @@ const Content = () => {
                 const id = uploadList[i].id;
                 progressBar.push(progressBarFactory(fileList[id]));
                 setHistoryCount(historyCount + 1);
-                uploadCompleted.push(Storage.put(fileList[id].webkitRelativePath, fileList[id], {
+                let filename = "";
+                if (fileList[id].webkitRelativePath == "") {
+                    filename = fileList[id].name
+                } else {
+                    filename = fileList[id].webkitRelativePath
+                }
+
+                uploadCompleted.push(Storage.put(filename, fileList[id], {
                         progressCallback: progressBar[i],
                         level: "protected"
                     }).then(result => {
