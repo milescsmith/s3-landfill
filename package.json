@@ -1,18 +1,20 @@
 {
   "name": "s3-uploader",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@aws-amplify/ui-react": "^5.0.2",
+    "@aws-amplify/ui-react": "^6.11.2",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@cloudscape-design/components": "^3.0.316",
     "@cloudscape-design/global-styles": "^1.0.10",
-    "aws-amplify": "^5.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.13.0",
-    "react-scripts": "^5.0.1",
-    "source-map-explorer": "^2.5.3"
+    "@vitejs/plugin-react": "^4.5.0",
+    "aws-amplify": "^6.15.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1",
+    "source-map-explorer": "^2.5.3",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
